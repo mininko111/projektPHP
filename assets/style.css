@@ -1,0 +1,237 @@
+/* ============================================================
+   BookShelf – Custom Stylesheet
+   Fonts: Playfair Display (headings) + DM Sans (body)
+   Palette: warm cream background, deep navy, amber accent
+   ============================================================ */
+
+:root {
+    --cream:   #faf6f0;
+    --paper:   #f0e9de;
+    --navy:    #1a2332;
+    --navy2:   #2c3e58;
+    --amber:   #d4842a;
+    --amber2:  #e8a04a;
+    --text:    #2d2926;
+    --muted:   #7a6f66;
+    --border:  #ddd4c6;
+    --white:   #ffffff;
+    --danger:  #c0392b;
+    --success: #27704a;
+    --radius:  10px;
+    --shadow:  0 4px 20px rgba(26,35,50,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    background: var(--navy);
+    padding: .9rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--white) !important;
+    letter-spacing: -.5px;
+}
+.brand-icon { font-size: 1.3rem; }
+.navbar .nav-link {
+    color: rgba(255,255,255,.75) !important;
+    font-weight: 400;
+    font-size: .95rem;
+    padding: .4rem .9rem !important;
+    border-radius: 6px;
+    transition: all .18s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--white) !important;
+    background: rgba(255,255,255,.12);
+}
+
+/* ---- Page titles ---- */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--navy);
+}
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: .6rem;
+    border-bottom: 3px solid var(--amber);
+    display: inline-block;
+}
+
+/* ---- Cards ---- */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform .18s, box-shadow .18s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(26,35,50,.14); }
+
+/* ---- Book grid ---- */
+.book-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.book-card .card-body { flex: 1; }
+.book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: .25rem;
+}
+.book-author { color: var(--muted); font-size: .88rem; margin-bottom: .5rem; }
+.badge-genre {
+    background: var(--paper);
+    color: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: .2rem .7rem;
+    font-size: .78rem;
+    font-weight: 500;
+}
+
+/* Stars rating */
+.stars { color: var(--amber); font-size: 1rem; letter-spacing: 1px; }
+
+/* ---- Buttons ---- */
+.btn-amber {
+    background: var(--amber);
+    color: var(--white);
+    border: none;
+    border-radius: 7px;
+    font-weight: 500;
+    transition: background .18s;
+}
+.btn-amber:hover { background: var(--amber2); color: var(--white); }
+
+.btn-outline-navy {
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    border-radius: 7px;
+    font-weight: 500;
+    background: transparent;
+    transition: all .18s;
+}
+.btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+/* ---- Forms ---- */
+.form-label { font-weight: 500; color: var(--navy2); margin-bottom: .3rem; }
+.form-control, .form-select {
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    padding: .55rem .85rem;
+    font-size: .95rem;
+    background: var(--white);
+    color: var(--text);
+    transition: border-color .18s, box-shadow .18s;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(212,132,42,.18);
+    outline: none;
+}
+.form-card {
+    max-width: 640px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 2.2rem;
+    box-shadow: var(--shadow);
+}
+.required-star { color: var(--danger); margin-left: 3px; }
+
+/* ---- Table ---- */
+.table-books th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 500;
+    font-size: .88rem;
+    letter-spacing: .3px;
+}
+.table-books td { vertical-align: middle; font-size: .93rem; }
+.table-books tr:hover td { background: var(--paper); }
+
+/* ---- Search bar ---- */
+.search-wrap {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+/* ---- Alert overrides ---- */
+.alert { border-radius: var(--radius); border: none; font-size: .95rem; }
+.alert-success { background: #d4edda; color: var(--success); }
+.alert-warning { background: #fff3cd; color: #856404; }
+.alert-danger  { background: #f8d7da; color: var(--danger); }
+
+/* ---- Detail view ---- */
+.detail-card { max-width: 700px; }
+.detail-label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: .2rem;
+}
+.detail-value { font-size: 1rem; color: var(--text); margin-bottom: 1rem; }
+
+/* ---- Stats strip ---- */
+.stats-strip {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.stat-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: .8rem 1.4rem;
+    box-shadow: var(--shadow);
+    min-width: 120px;
+    text-align: center;
+}
+.stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+}
+.stat-lbl { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+
+/* ---- Footer ---- */
+.site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.5);
+    font-size: .82rem;
+    padding: 1.2rem 0;
+    margin-top: auto;
+}
+
+/* ---- Utility ---- */
+.text-amber { color: var(--amber); }
+.text-muted-custom { color: var(--muted); }
+main.container { min-height: calc(100vh - 180px); }
